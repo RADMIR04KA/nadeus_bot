@@ -3,7 +3,7 @@ from io import BytesIO
 from SECRET import OWM
 import telebot  # pyTelegramBotAPI 4.3.1
 from telebot import types
-from media import get_randomFilm, get_randomAnime
+
 from Weather import mainOWM, get_weather
 from DZ import my_input
 import DZ
@@ -71,8 +71,8 @@ def get_text_messages(message):
 
                 def get_weather(OWM):
                     try:
-
-
+                        bot.send_message(chat_id, text='Погода в городе СПб')
+                        gorod = 'saintpetersburg'
                         r = requests.get(
                             f'https://api.openweathermap.org/data/2.5/weather?q={gorod}&appid=d9028bd837a2f592c7f6920a3c62710f&units=metric'
                         )
@@ -94,9 +94,9 @@ def get_text_messages(message):
                         bot.send_message(chat_id, text=ms_text)
                         bot.send_message(chat_id, text=OWM)
 
-                gorod  = ms_text
-                msg = bot.send_message(chat_id, text='В каком ты городе')
-                bot.register_next_step_handler(msg, get_weather)
+                #gorod  = ms_text
+                #msg =
+                #bot.register_next_step_handler(msg, get_weather)
 
 
         elif ms_text == "Карту!":

@@ -4,7 +4,7 @@ import telebot
 import bs4  # BeautifulSoup4
 from telebot import types
 from io import BytesIO
-import secret  # секретные ключи, пароли
+import SECRET  # секретные ключи, пароли
 bot = telebot.TeleBot("5123164493:AAEmHYCyVvKt7-IiZTYqZC7ssbZCFMZ5U5A")
 # -----------------------------------------------------------------------
 def get_text_messages(bot, cur_user, message):
@@ -22,8 +22,7 @@ def get_text_messages(bot, cur_user, message):
     elif ms_text == "Прислать новости":
         bot.send_message(chat_id, text=get_news())
 
-    elif ms_text == "Прислать фильм":
-        send_film(bot, chat_id)
+
 
     elif ms_text == "Угадай кто?":
         get_ManOrNot(bot, chat_id)
